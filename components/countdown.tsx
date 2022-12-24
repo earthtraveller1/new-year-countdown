@@ -13,7 +13,7 @@ export default function Countdown() {
     let [seconds, setSeconds] = React.useState(0)
     
     React.useEffect(() => {
-        const timer = setInterval(() => {
+        const func = () => {
             const rightNow = new Date()
             const thisYear = rightNow.getFullYear()
             
@@ -30,7 +30,12 @@ export default function Countdown() {
             setHours(range.hours)
             setMinutes(range.minutes)
             setSeconds(range.seconds)
-            
+        }
+        
+        func()
+        
+        const timer = setInterval(() => {
+            func()
         }, 1000)
         
         return () => {
