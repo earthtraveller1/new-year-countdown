@@ -1,4 +1,14 @@
 $dial_radius: 20em;
+$border_width: 2em;
+
+.border {
+    width: ($dial_radius + $border_width) * 2;
+    height: ($dial_radius + $border_width) * 2;
+    border-radius: $dial_radius + $border_width;
+    display: flex;
+    align-self: center;
+    margin: auto;
+}
 
 .dial {
     width: $dial_radius * 2;
