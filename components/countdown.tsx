@@ -1,4 +1,5 @@
 import React from "react";
+import { TimeRange } from "../lib/utils";
 
 import styles from "./countdown.module.scss"
 
@@ -22,23 +23,13 @@ export default function Countdown() {
             }
             
             const newYearDay = new Date(nextYear, 0, 1)
-            const range = newYearDay.getTime() - rightNow.getTime()
+            const range = new TimeRange(rightNow.getTime(), newYearDay.getTime())
             
-            let innerSeconds = Math.floor(range / 1000)
-            let innerMinutes = Math.floor(innerSeconds / 60)
-            innerSeconds %= 60
-            let innerHours = Math.floor(innerMinutes / 60)
-            innerMinutes %= 60
-            let innerDays = Math.floor(innerHours / 24)
-            innerHours %= 24
-            let innerWeeks = Math.floor(innerDays / 7)
-            innerDays %= 7
-            
-            setWeeks(innerWeeks)
-            setDays(innerDays)
-            setHours(innerHours)
-            setMinutes(innerMinutes)
-            setSeconds(innerSeconds)
+            setWeeks(range.weeks)
+            setDays(range.days)
+            setHours(range.hours)
+            setMinutes(range.minutes)
+            setSeconds(range.seconds)
             
         }, 1000)
         
