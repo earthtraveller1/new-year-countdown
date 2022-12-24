@@ -1,22 +1,22 @@
 import Head from "next/head"
 
+import Dial from "../components/dial"
+import Countdown from "../components/countdown"
+
 import styles from "../styles/Home.module.scss"
 
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>New Year Countdown</title>
-      </Head>
+    return (
+        <>
+            <Head>
+                <title>New Year Countdown</title>
+            </Head>
 
-      <main className={styles.main}>
-        <div className={styles.dial}>
-          <div className={styles.stuffInMiddle}>
-            <h1 className={styles.time}>0 W, 0 D, 00:00:00</h1>
-            <p>Until 2023!!!</p>
-          </div>
-        </div>
-      </main>
-    </>
-  )
+            <main className={styles.main}>
+                <Dial>
+                    <Countdown/>
+                </Dial>
+            </main>
+        </>
+    )
 }
