@@ -7,14 +7,20 @@ export default function Dial({ children }: { children: React.ReactNode }) {
     let [progress, setProgress] = React.useState(0)
     
     React.useEffect(() => {
-        const timer = setInterval(() => {
+        const func = () => {
             const rightNow = new Date()
             const newYearDay = new Date(rightNow.getFullYear() + 1, 0, 1)
             
             const range = new TimeRange(rightNow.getTime(), newYearDay.getTime())
             
             setProgress(range.fractionOfYearOver() * 360)
-        }, 1000)
+        }
+        
+        func()
+        
+        const timer = setInterval(() => {
+            func()
+        }, 100000)
         
         return () => { clearInterval(timer) }
     }, [])
