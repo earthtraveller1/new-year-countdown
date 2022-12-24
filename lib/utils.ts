@@ -7,7 +7,7 @@ class TimeRange {
     private _range: number;
     
     constructor(start: number, end: number) {
-        this._range = start - end
+        this._range = end - start
         
         this._seconds = Math.floor(this._range / 1000)
         this._minutes = Math.floor(this._seconds / 60)
