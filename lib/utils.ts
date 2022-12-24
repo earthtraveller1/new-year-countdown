@@ -46,7 +46,7 @@ class TimeRange {
         
         const yearRange = new Date(nextYear, 1, 1).getTime() - new Date(thisYear, 1, 1).getTime()
         
-        return (this._range / yearRange)
+        return ((yearRange - this._range) / yearRange)
     }
 }
 
