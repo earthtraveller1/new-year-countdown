@@ -2,8 +2,17 @@
     margin: auto;
     text-align: center;
     align-self: center;
+    font-family: 'Fira Code Retina', 'Fira Code', monospace;
+    color: rgb(176, 168, 168);
 }
 
 .time {
-    font-family: 'Fira Code Retina', 'Fira Code', monospace
+    font-size: 2em;
+    font-style: bold;
+}
+
+.yearSubtitle {
+    font-style: italic;
+    color: rgb(150, 150, 150);
+    font-size: 1.2em;
 }
