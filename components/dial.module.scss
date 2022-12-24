@@ -1,0 +1,11 @@
+$dial_radius: 20em;
+
+.dial {
+    width: $dial_radius * 2;
+    height: $dial_radius * 2;
+    border-radius: $dial_radius;
+    background-color: red;
+    display: flex;
+    align-self: center;
+    margin: auto;
+}
