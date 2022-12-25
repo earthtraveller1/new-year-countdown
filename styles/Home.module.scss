@@ -1,5 +1,6 @@
 $level_one_font_size: 13px;
 $level_two_font_size: 5px;
+$level_zero_font_size: 24px;
 
 .main {
     display: flex;
@@ -13,6 +14,18 @@ $level_two_font_size: 5px;
     background-color: black;
 
     border: 0;
+}
+
+@media screen and (min-width: 1080px) {
+    .main {
+        font-size: $level_zero_font_size;
+    }
+}
+
+@media screen and (min-height: 1080px) {
+    .main {
+        font-size: $level_zero_font_size;
+    }
 }
 
 @media screen and (max-width: 1000px) {
