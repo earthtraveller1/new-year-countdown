@@ -1,18 +1,44 @@
 $dial_radius: 20em;
-$border_width: 2em;
+$border_thickness: 2em;
+
+$border_size: ($dial_radius + $border_thickness) * 2;
 
 .border {
-    width: ($dial_radius + $border_width) * 2;
-    height: ($dial_radius + $border_width) * 2;
-    border-radius: $dial_radius + $border_width;
+    // width: ($dial_radius + $border_width) * 2;
+    // height: ($dial_radius + $border_width) * 2;
+    aspect-ratio: 1/1;
+    border-radius: $dial_radius + $border_thickness;
     display: flex;
     align-self: center;
     margin: auto;
 }
 
+@media (max-aspect-ratio: 1/1) {
+    .border {
+        width: clamp(1rem + $border_thickness, $border_size, 100vw);
+        height: clamp(1rem + $border_thickness, $border_size, 100vw);
+    }
+    
+    .dial {
+        width: clamp(1rem, $dial_radius * 2, calc(100vw - $border_thickness * 2));
+        height: clamp(1rem, $dial_radius * 2, calc(100vw - $border_thickness * 2));
+    }
+}
+
+@media (min-aspect-ratio: 1/1) {
+    .border {
+        width: clamp(1rem + $border_thickness, $border_size, 100vh);
+        height: clamp(1rem + $border_thickness, $border_size, 100vh);
+    }
+    
+    .dial {
+        width: clamp(1rem, $dial_radius * 2, calc(100vh - $border_thickness * 2));
+        height: clamp(1rem, $dial_radius * 2, calc(100vh - $border_thickness * 2));
+    }
+}
+
 .dial {
-    width: $dial_radius * 2;
-    height: $dial_radius * 2;
+    aspect-ratio: 1/1;
     border-radius: $dial_radius;
     background-color: rgb(0, 0, 32);
     display: flex;
