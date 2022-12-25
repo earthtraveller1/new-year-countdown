@@ -50,6 +50,23 @@ class TimeRange {
     }
 }
 
+/**
+ * @brief Pads a number with a minimum number of digits.
+ * @param num The number that you want to pad.
+ * @param digits The number of digits you want to have.
+ */
+function padNumber(num: number, digits: number): string {
+    let result = num.toString()
+    if (result.length < digits) {
+        const missingDigits = digits - result.length;
+        for (let i = 0; i < missingDigits; i++) {
+            result = '0' + result;
+        }
+    }
+    
+    return result;
+}
+
 export {
     TimeRange
 }
