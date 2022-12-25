@@ -2,7 +2,8 @@ $dial_radius: 20em;
 $border_thickness: 2em;
 $margin: 4em;
 
-$border_size: ($dial_radius + $border_thickness) * 2;
+$border_size: (
+    $dial_radius + $border_thickness) * 2;
 
 .border {
     // width: ($dial_radius + $border_width) * 2;
@@ -16,14 +17,15 @@ $border_size: ($dial_radius + $border_thickness) * 2;
 
 @media (max-aspect-ratio: 1/1) {
     .border {
-        width: clamp(1rem + $border_thickness, $border_size, calc(100vw - $margin));
-        height: clamp(1rem + $border_thickness, $border_size, calc(100vw - $margin));
-    }
-    
-    .dial {
-        width: clamp(1rem, $dial_radius * 2, calc(100vw - $border_thickness * 2 - $margin));
-        height: clamp(1rem, $dial_radius * 2, calc(100vw - $border_thickness * 2 - $margin));
-    }
+        width: clamp(1rem + $border_thickness, $border_size, calc(100vw - $margin)
+        );
+    height: clamp(1rem + $border_thickness, $border_size, calc(100vw - $margin));
+}
+
+.dial {
+    width: clamp(1rem, $dial_radius * 2, calc(100vw - $border_thickness * 2 - $margin));
+    height: clamp(1rem, $dial_radius * 2, calc(100vw - $border_thickness * 2 - $margin));
+}
 }
 
 @media (min-aspect-ratio: 1/1) {
@@ -31,7 +33,7 @@ $border_size: ($dial_radius + $border_thickness) * 2;
         width: clamp(1rem + $border_thickness, $border_size, calc(100vh - $margin));
         height: clamp(1rem + $border_thickness, $border_size, calc(100vh - $margin));
     }
-    
+
     .dial {
         width: clamp(1rem, $dial_radius * 2, calc(100vh - $border_thickness * 2 - $margin));
         height: clamp(1rem, $dial_radius * 2, calc(100vh - $border_thickness * 2 - $margin));
