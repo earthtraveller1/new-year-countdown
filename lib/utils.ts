@@ -68,5 +68,5 @@ function padNumber(num: number, digits: number): string {
 }
 
 export {
-    TimeRange
+    TimeRange, padNumber
 }
