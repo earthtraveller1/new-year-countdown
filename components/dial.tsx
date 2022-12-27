@@ -16,13 +16,11 @@ export default function Dial({ children }: { children: React.ReactNode }) {
         
         function incrementProgress() {
             if (innerProgress < fullProgress) {
-                setProgress(innerProgress)
                 innerProgress += 1.5
-                
                 if (innerProgress > fullProgress) {
                     innerProgress = fullProgress
-                    setProgress(innerProgress)
                 }
+                setProgress(innerProgress)
                 
                 setTimeout(incrementProgress, 1)
             }
