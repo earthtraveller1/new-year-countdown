@@ -2,6 +2,16 @@ $level_one_font_size: 13px;
 $level_two_font_size: 10px;
 $level_zero_font_size: 24px;
 
+$animation_rate: 24;
+
+@keyframes pulsing-background {
+    0% { background-color: rgb(0, 0, 32) }
+    20% { background-color: rgb(0, 0, 32 + $animation_rate * 1) }
+    50% { background-color: rgb(0, 0, 32 + $animation_rate * 2) }
+    75% { background-color: rgb(0, 0, 32 + $animation_rate * 1) }
+    100% { background-color: rgb(0, 0, 32) }
+}
+
 .main {
     display: flex;
     height: 100vh;
@@ -12,6 +22,10 @@ $level_zero_font_size: 24px;
     top: 0;
     left: 0;
     background-color: black;
+    animation-name: pulsing-background;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 
     border: 0;
 }
