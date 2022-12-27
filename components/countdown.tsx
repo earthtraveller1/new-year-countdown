@@ -20,7 +20,7 @@ export default function Countdown() {
         
         function fadeIn() {
             if (innerOpacity < maxOpacity) {
-                innerOpacity += 0.5
+                innerOpacity += 0.25
                 if (innerOpacity > maxOpacity) {
                     innerOpacity = maxOpacity
                 }
