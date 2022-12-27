@@ -12,6 +12,27 @@ export default function Countdown() {
     let [minutes, setMinutes] = React.useState('0')
     let [seconds, setSeconds] = React.useState('0')
     
+    let [opacity, setOpacity] = React.useState(0)
+    
+    React.useEffect(() => {
+        const maxOpacity = 100
+        let innerOpacity = 0
+        
+        function fadeIn() {
+            if (innerOpacity < maxOpacity) {
+                innerOpacity += 0.5
+                if (innerOpacity > maxOpacity) {
+                    innerOpacity = maxOpacity
+                }
+                setOpacity(innerOpacity)
+                
+                setTimeout(fadeIn, 1)
+            }
+        }
+        
+        fadeIn()
+    }, [])
+    
     React.useEffect(() => {
         const func = () => {
             const rightNow = new Date()
@@ -44,7 +65,7 @@ export default function Countdown() {
     }, [])
     
     return (
-        <div className={styles.countdown}>
+        <div className={styles.countdown} style={{opacity: `${opacity}%`}}>
             <h1 className={styles.time}>{weeks} W, {days} D, {hours}:{minutes}:{seconds}</h1>
             <p className={styles.yearSubtitle}>...until {nextYear}!</p>
         </div>
