@@ -17,8 +17,14 @@ export default function Dial({ children }: { children: React.ReactNode }) {
         function incrementProgress() {
             if (innerProgress < fullProgress) {
                 setProgress(innerProgress)
-                innerProgress++
-                setTimeout(incrementProgress, 0.1)
+                innerProgress += 1.5
+                
+                if (innerProgress > fullProgress) {
+                    innerProgress = fullProgress
+                    setProgress(innerProgress)
+                }
+                
+                setTimeout(incrementProgress, 1)
             }
         }
         
@@ -33,7 +39,7 @@ export default function Dial({ children }: { children: React.ReactNode }) {
             const range = new TimeRange(rightNow.getTime(), newYearDay.getTime())
             
             setProgress(range.fractionOfYearOver() * 360)
-        }, 100000)
+        }, 1000)
         
         return () => { clearInterval(timer) }
     }, [])
