@@ -37,7 +37,7 @@ export default function Dial({ children }: { children: React.ReactNode }) {
             const range = new TimeRange(rightNow.getTime(), newYearDay.getTime())
             
             setProgress(range.fractionOfYearOver() * 360)
-        }, 1000)
+        }, 10000)
         
         return () => { clearInterval(timer) }
     }, [])
